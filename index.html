@@ -1,0 +1,21 @@
+<canvas id="wheel"></canvas>
+
+    <script src="wheel.js"></script>
+
+    <script>
+
+      var settings = {
+        el: '#wheel',
+        members: ['Audio1', 'Audio2', 'Audio3', 'Audio4', 'Audio5'],
+        colors: ['#264653', '#2A9D8F', '#E9C46A', '#F4A261', 'E76F51'],
+        radius: 250
+      };
+
+      var wheel = new PrizeWheel(settings);
+
+      wheel.init();
+      wheel.spin(function(member) {
+        alert(member);
+      });
+
+</script>
