@@ -1,21 +1,111 @@
 <canvas id="wheel"></canvas>
 
-    <script src="wheel.js"></script>
+    <style>
+      body {
+ -webkit-box-sizing: border-box;
+ -moz-box-sizing: border-box;
+ box-sizing: border-box;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+}
 
+a,
+a:hover,
+a:active,
+a:focus {
+  color: #0077B3;
+  text-decoration: none;
+}
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+.wheel-container {
+  position: relative;
+  text-align: center;
+}
+
+#output {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.actions {
+  display: block;
+  padding: 10px;
+  margin: 20px 0 50px 0;
+  text-align: center;
+}
+
+.btn-spin {
+  display: inline-block;
+}
+
+.punch {
+  position: relative;
+  background: #4162a8;
+  color: white;
+  font: bold 20px/1 "helvetica neue", helvetica, arial, sans-serif;
+  padding: 10px 0 12px 0;
+  text-align: center;
+  width: 150px;
+  }
+  button.punch:hover {
+    cursor: pointer; }
+
+
+.code {
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 0 0 100px 0;
+}
+
+.footer {
+  font-size: 12px;
+  text-align: center;
+}
+    </style>
+    <script src="wheel.js"></script>
+    <section class="wheel-container">
+      <canvas id="wheel-1"></canvas>
+      <output id="output"></output>
+    </section>
+  
+    <section class="actions">
+      <button class="btn-spin punch">Spin!</button>
+    </section>
+  
     <script>
 
       var settings = {
         el: '#wheel',
-        members: ['Audio1', 'Audio2', 'Audio3', 'Audio4', 'Audio5'],
-        colors: ['#264653', '#2A9D8F', '#E9C46A', '#F4A261', 'E76F51'],
+        members: ['Audio1', 'Audio2', 'Audio3', 'Audio4', 'Audio5','Audio1', 'Audio2', 'Audio3', 'Audio4', 'Audio5'],
+        colors: ['#264653', '#2A9D8F', '#E9C46A', '#F4A261', '#E76F51','#264653', '#2A9D8F', '#E9C46A', '#F4A261', '#E76F51'],
         radius: 250
       };
 
       var wheel = new PrizeWheel(settings);
 
       wheel.init();
-      wheel.spin(function(member) {
-        alert(member);
+      var spinBtn = document.querySelector('.btn-spin');
+      var output = document.querySelector('#output');
+
+      spinBtn.addEventListener('click', function(e) {
+        output.textContent = '';
+        wheel.spin(function(member) {
+            output.innerHTML = 'Winner:<br /><strong>' + member + '</strong>';
+        });
       });
+
 
 </script>
