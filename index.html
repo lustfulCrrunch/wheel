@@ -121,8 +121,9 @@
         ['20', "https://soundgasm.net/u/Lustful_Crunch/M4F-Cupid-Good-Morning-Lets-cuddle-our-responsibilities-away-shall-we-BFE-Sweet-Morning-Cuddles-Relaxing-Kisses-We-dont-have-to-do-anything-today-right"]]
       )
 
-      let pal = ["#30343f","#fafaff","#e4d9ff","#273469","#1e2749"]
-      colours = Array.from({length: audios.size}, () => pal[Math.floor(Math.random() * 5)])
+      let pal = ["#03045e","#023e8a","#0077b6","#0096c7","#00b4d8","#48cae4","#90e0ef","#ade8f4","#caf0f8"]
+
+      colours = Array.from({length: audios.size}, () => pal[Math.floor(Math.random() * pal.length)])
       let settings = {
         el: '#wheel',
         members: Array.from(audios.keys()),
