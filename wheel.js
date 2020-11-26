@@ -29,7 +29,7 @@
 
     s.width = s.height = s.radius * 2;
     s.insideRadius = (s.width / 5);
-    s.outsideRadius = (s.width / 2) - 10;
+    s.outsideRadius = (s.width / 3) - 10;
 
     s.startAngle = (s.startAngle === 'random' ? Math.floor(Math.random() * 360) : s.startAngle);
     s.arc = Math.PI / (s.members.length / (s.members.length / (s.members.length / 2)));
@@ -112,7 +112,7 @@
         spinAngle = s.spinAngleStart - _this.easeOut(s.spinTime, 0, s.spinAngleStart, s.spinTimeTotal);
         s.startAngle += (spinAngle * Math.PI / 180);
         _this.draw();
-        s.spinTimeout = setTimeout(_this.rotate, 30);
+        s.spinTimeout = setTimeout(_this.rotate, 35);
       };
 
       this.spin = function(cb) {
